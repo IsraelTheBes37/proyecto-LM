@@ -18,6 +18,8 @@ CREATE TABLE clientes (
   num_piso varchar(50) DEFAULT NULL,
   cp varchar(50) DEFAULT NULL,
   telefono varchar(50) DEFAULT NULL,
+  correo: varchar(50) unique not null,
+  clave varchar(50) not null,
   PRIMARY KEY (num_cliente),
   KEY clientes_fk1 (representante),
   CONSTRAINT clientes_fk1 FOREIGN KEY (representante) REFERENCES empleados (num_empleado)
@@ -33,6 +35,8 @@ CREATE TABLE empleados (
   nombre varchar(50) DEFAULT NULL,
   apellido varchar(50) DEFAULT NULL,
   cargo varchar(50) DEFAULT NULL,
+  correo: varchar(50) unique not null,
+  clave varchar(50) not null,
   administrador int DEFAULT NULL,
   PRIMARY KEY (num_empleado),
   CONSTRAINT empleados_fk2 FOREIGN KEY (administrador) REFERENCES empleados (num_empleado)
