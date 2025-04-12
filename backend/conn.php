@@ -8,4 +8,9 @@
         $usuario = "root";
         $contrasena = "";
         $nombreBD = "bdzapateria";
+
+        $conn = new mysqli($servidor, $usuario, $contrasena, $nombreBD);
+        if ($conn->connect_error) {
+                die("Conexión fallida: " . $conn->connect_error);
+            }
 ?>
