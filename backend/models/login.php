@@ -4,10 +4,6 @@ session_start();
 // Datos de conexión
 include "../conn.php";
 
-// Conexión a MySQL
-//$conn = new mysqli($servidor, $usuario, $contrasena, $nombreBD);
-
-
 // Obtener datos del formulario
 $correo = $_POST['correo'];
 $clave = $_POST['clave'];
@@ -47,9 +43,12 @@ if ($resultCliente->num_rows > 0) {
     $cliente = $resultCliente->fetch_assoc();
     $_SESSION['nombre'] = $cliente['nombre'];
     $_SESSION['cliente'] = true;
-    header("Location: vistaCliente.php");
+    header("Location: ../../frontend/vistaCliente.php");
     exit;
 }
 
-echo "Correo o clave incorrectos.";
+// Si no coincide
+header("Location: ../../frontend/loginVista.php?error=1");
+exit;
+//echo "Correo o clave incorrectos.";
 ?>

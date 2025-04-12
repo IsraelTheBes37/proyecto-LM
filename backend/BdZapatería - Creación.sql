@@ -46,6 +46,7 @@ CREATE TABLE clientes (
 DROP TABLE IF EXISTS productos;
 CREATE TABLE productos (
   id_modelo int PRIMARY KEY AUTO_INCREMENT,
+  nom_imagen varchar(300) DEFAULT NULL,
   descripcion varchar(50) DEFAULT NULL,
   precio int DEFAULT NULL,
   existencias int DEFAULT NULL,
@@ -76,12 +77,12 @@ CREATE TABLE pedidos (
 
 -- Insertar al administrador (Informático)
 INSERT INTO empleados (nombre, apellido, cargo, correo, clave, administrador)
-VALUES ('Israel', 'Quishpe', 'Informático', 'iquishpe@empresa.com', 'admin', NULL);
+VALUES ('Israel', 'Quishpe', 'Informático', 'iquishpe@huellas.com', 'admin', NULL);
 
 -- Insertar al vendedor (administrado por el Informático)
 INSERT INTO empleados (nombre, apellido, cargo, correo, clave, administrador)
-VALUES ('Ana', 'López', 'Vendedor', 'ana@empresa.com', 'vendedor123', 1);
+VALUES ('Ana', 'López', 'Vendedor', 'ana@huellas.com', 'vendedor123', 1);
 
 -- Insertar al Director de Ventas (administrado por el Informático)
 INSERT INTO empleados (nombre, apellido, cargo, correo, clave, administrador)
-VALUES ('Alejandro', 'Peláez', 'DirectorVentas', 'apelaez@empresa.com', 'ventas456', 1);
+VALUES ('Alejandro', 'Peláez', 'DirectorVentas', 'apelaez@huellas.com', 'ventas456', 1);
