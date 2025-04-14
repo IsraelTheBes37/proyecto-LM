@@ -77,7 +77,7 @@ CREATE TABLE pedidos (
 
 -- Insertar al administrador (Informático)
 INSERT INTO empleados (nombre, apellido, cargo, correo, clave, administrador)
-VALUES ('Israel', 'Quishpe', 'Informático', 'iquishpe@huellas.com', 'admin', NULL);
+VALUES ('Israel', 'Quishpe', 'Informatico', 'iquishpe@huellas.com', 'admin', NULL);
 
 -- Insertar al vendedor (administrado por el Informático)
 INSERT INTO empleados (nombre, apellido, cargo, correo, clave, administrador)

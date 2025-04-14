@@ -20,7 +20,7 @@ if ($resultEmpleado->num_rows > 0) {
     $_SESSION['nombre'] = $empleado['nombre'];
     $_SESSION['cargo'] = $empleado['cargo'];
 
-    if ($empleado['cargo'] === 'Informático') {
+    if ($empleado['cargo'] === 'Informatico') {
         header("Location: ../../frontend/vistaAdmin.php");
     } elseif ($empleado['cargo'] === 'DirectorVentas') {
         header("Location: ../../frontend/vistaAdmin.php");
@@ -28,6 +28,7 @@ if ($resultEmpleado->num_rows > 0) {
         header("Location: ../../frontend/vistaAdmin.php");
     } else {
         echo "Cargo no autorizado.";
+        echo '<br><button onclick="window.location.href=\'../../frontend/loginVista.php\';">Regresar</button>';
     }
     exit;
 }

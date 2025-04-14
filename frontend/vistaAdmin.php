@@ -51,7 +51,7 @@ $nombre = $_SESSION['nombre'];
     <h2>Bienvenido, <?= htmlspecialchars($nombre) ?> (<?= htmlspecialchars($cargo) ?>)</h2>
 
     <div class="panel">
-        <?php if ($cargo === "Informático"): ?>
+        <?php if ($cargo === "Informatico"): ?>
             <a href="../backend/views/listaClientes.php" class="enlace">Gestionar Clientes</a>
             <a href="../backend/views/listaEmpleados.php" class="enlace">Gestionar Empleados</a>
             <a href="../backend/views/listaPedidos.php" class="enlace">Gestionar Pedidos</a>

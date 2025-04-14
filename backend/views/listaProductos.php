@@ -12,9 +12,9 @@ $nombre = $_SESSION['nombre'];
 
 require '../conn.php'; // Archivo que contiene la conexión a la BDD
 
-$puedeEliminar = ($cargo === 'Informático');
-$puedeAgregar = in_array($cargo, ['Informático', 'DirectorVentas']);
-$puedeEditar = in_array($cargo, ['Informático', 'DirectorVentas']);
+$puedeEliminar = ($cargo === 'Informatico');
+$puedeAgregar = in_array($cargo, ['Informatico', 'DirectorVentas']);
+$puedeEditar = in_array($cargo, ['Informatico', 'DirectorVentas']);
 
 // Obtener productos
 $sql = "SELECT * FROM productos ORDER BY id_modelo DESC";
@@ -57,7 +57,7 @@ $resultado = $conn->query($sql);
 </head>
 <body>
     <h2>CRUD de Productos</h2>
-    <button onclick="window.history.back();">Regresar</button>
+    <button onclick="window.location.href='../../frontend/vistaAdmin.php';">Regresar</button>
     <?php if ($puedeAgregar): ?>
     <form method="post" action="../models/addProducto.php">
         <br><input type="text" name="descripcion" placeholder="Descripción" required>

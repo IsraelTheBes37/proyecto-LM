@@ -16,5 +16,5 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssiisss", $descripcion, $nom_imagen, $precio, $existencias, $modelo, $talla, $genero);
 $stmt->execute();
 
-header("Location: ../vistas/listaProductos.php");
+header("Location: ../views/listaProductos.php");
 ?>
