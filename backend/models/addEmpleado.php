@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = $_POST['nombre'];
     $cargo = $_POST['cargo'];
     $correo = $_POST['correo'];
-    $clave = password_hash($_POST['clave'], PASSWORD_DEFAULT);
+    $clave = $_POST['clave'];
 
     $stmt = $conn->prepare("INSERT INTO empleados (nombre, cargo, correo, clave) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $nombre, $cargo, $correo, $clave);
