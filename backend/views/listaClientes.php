@@ -3,9 +3,9 @@ session_start();
 require '../conn.php'; // tu archivo de conexión
 
 $cargo = $_SESSION['cargo'];
-$permiteEliminar = ($cargo === "Informático");
-$permiteEditar = in_array($cargo, ["Informático", "DirectorVentas"]);
-$permiteCrear = in_array($cargo, ["Informático", "DirectorVentas"]);
+$permiteEliminar = ($cargo === "Informatico");
+$permiteEditar = in_array($cargo, ["Informatico", "DirectorVentas"]);
+$permiteCrear = in_array($cargo, ["Informatico", "DirectorVentas"]);
 
 $busqueda = $_GET['busqueda'] ?? '';
 
