@@ -110,16 +110,16 @@ INSERT INTO clientes (nombre, apellido, representante, calle, porton, num_piso, 
 ('David', 'Mora', 7, 'Calle Cuenca', '88Z', '1', '170802', '0989876543', 'dmora@mail.com', 'clave5');
 
 INSERT INTO productos (nom_imagen, descripcion, precio, existencias, modelo, talla, genero) VALUES
-('zapato1.jpg', 'Zapato casual negro', 45, 20, 'ZP001', '40', 'Masculino'),
-('zapato2.jpg', 'Zapato formal café', 55, 15, 'ZP002', '42', 'Masculino'),
-('zapato3.jpg', 'Zapato deportivo blanco', 60, 30, 'ZP003', '38', 'Femenino'),
-('zapato4.jpg', 'Sandalia azul', 35, 25, 'ZP004', '37', 'Femenino'),
-('zapato5.jpg', 'Botín negro', 70, 10, 'ZP005', '41', 'Masculino'),
-('zapato6.jpg', 'Zapatilla rosada', 50, 18, 'ZP006', '36', 'Femenino'),
-('zapato7.jpg', 'Zapato escolar', 40, 40, 'ZP007', '39', 'Unisex'),
-('zapato8.jpg', 'Zapato trekking', 80, 12, 'ZP008', '43', 'Masculino'),
-('zapato9.jpg', 'Sandalia con tacón', 65, 8, 'ZP009', '38', 'Femenino'),
-('zapato10.jpg', 'Zapato de cuero', 90, 5, 'ZP010', '44', 'Masculino');
+('https://i5-mx.walmartimages.com/mg/gm/3pp/asr/14bdbf99-f2b9-4171-b256-f8b88c027fd2.796935f7b5a9bdd040a17f3d97e99938.jpeg', 'Zapato casual negro', 45, 20, 'ZP001', 'L', 'Masculino'),
+('https://i.pinimg.com/736x/12/53/af/1253afae2bb07dced910f6f0bf1ae10a.jpg', 'Zapato formal café', 55, 15, 'ZP002', 'M', 'Masculino'),
+('https://media.hipercalzado.com/img/p/1/7/6/3/7/4/4/1763744-large_default.jpg', 'Zapato deportivo blanco', 60, 30, 'ZP003', 'S', 'Femenino'),
+('https://th.bing.com/th/id/OIP.Lq3aoBBszh_DOCT7sm3BlgHaE8?rs=1&pid=ImgDetMain', 'Sandalia azul', 35, 25, 'ZP004', 'M', 'Femenino'),
+('https://resources.claroshop.com/medios-plazavip/s2/10996/1305931/5e2613113e65b-7f3ea88a-5c0d-4973-a9bb-ae5fe73274ab-1600x1600.jpg', 'Botín negro', 70, 10, 'ZP005', 'XS', 'Niño'),
+('https://cdn1.coppel.com/images/catalog/pr/8563952-3.jpg', 'Zapatilla rosada', 50, 18, 'ZP006', 'XS', 'Niña'),
+('https://www.lapolar.cl/dw/image/v2/BCPP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8a6b652c/images/large/20997370.jpg', 'Zapato escolar', 40, 40, 'ZP007', 'XS', 'Niño'),
+('https://m.media-amazon.com/images/I/81LImxyO+wL._AC_UL1500_.jpg', 'Zapato trekking', 80, 12, 'ZP008', 'XS', 'Niña'),
+('https://www.puralopez.com/uploads/images/products/sandalias-camel-tacon-ancho-pura-lopez-aquira.jpg', 'Sandalia con tacón', 65, 8, 'ZP009', 'S', 'Femenino'),
+('https://gautsche.de/media/image/26/96/9a/490-cognac-4_1280x1280.jpg', 'Zapato de cuero', 90, 5, 'ZP010', 'XL', 'Masculino');
 
 INSERT INTO pedidos (fecha_pedido, fk_cliente, fk_vendedor, fk_modelo, cantidad) VALUES
 ('2025-04-01', 1, 2, 1, 2),

@@ -43,7 +43,12 @@ $resultCliente = $stmtCliente->get_result();
 if ($resultCliente->num_rows > 0) {
     $cliente = $resultCliente->fetch_assoc();
     $_SESSION['nombre'] = $cliente['nombre'];
-    $_SESSION['cliente'] = true;
+    $_SESSION['cliente'] = [
+        'num_cliente' => $cliente['num_cliente'],
+        'nombre' => $cliente['nombre'],
+        'apellido' => $cliente['apellido'],
+        'correo' => $cliente['correo']
+    ];
     header("Location: ../../frontend/vistaCliente.php");
     exit;
 }
