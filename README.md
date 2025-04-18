@@ -1,8 +1,25 @@
 Desglose:
 
-Configurar el archivo conn.php con el servidor de bdd.
-Ejecutar el script de la bdzapateria.sql
-Utilizar las credeciales de los tres primero usuarios de los insert para probar el sistema.
+Pasos para ejecutar el programa:
+Dirigirse a la carpeta Backend dento se encuentran los archivos "BdZapatería - Creación.sql" y "conn.php".
+1. Configurar el archivo "conn.php" con el puerto del servidor de mysql.
+2. Copiar el script de "BdZapatería - Creación.sql" y ejecutarlo en MySql, así se creará la bdd y se insertará datos.
+3. Los usarios para hacer pruebas son:
+	Cliente: jperez@mail.com
+	Clave: 1234
+	Permisos: puede actulizar sus datos, darse de baja, ver los productos, generar pedidos y devolver pedidos.
+	
+	Administrador: iquishpe@huellas.com
+	Clave: admin
+	Permisos: control total para gestionar productos, empleados, pedidos y en clientes no podrá crear nuevos clientes.
+	
+	Director de ventas: apelaez@huellas.com
+	Clave: ventas456
+	Permisos: solo puede actulizar clientes y, agregar y editar productos.
+	
+	Vendedor: ana@huellas.com
+	Clave: vendedor123
+	Permisos: tiene control total sobre pedidos.
 
 /frontend: Contiene todos los archivos relacionados con el frontend, incluyendo HTML, CSS, JavaScript, imágenes, fuentes, etc.
 
