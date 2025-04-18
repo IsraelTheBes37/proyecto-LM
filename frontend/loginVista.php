@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Iniciar Sesión</title>
-  <style>
-    body { font-family: Arial; padding: 20px; background-color: #f2f2f2; }
-    form { max-width: 300px; margin: auto; background: white; padding: 20px; border-radius: 6px; }
-    .error { color: red; margin-bottom: 10px; font-weight: bold; text-align: center; }
-  </style>
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+  <!-- menu -->
+<header>
+    <div class="container">
+        <div class="logo">Huellas Zapatería</div>
+        <nav>
+            <a class="active" href="index.html">Inicio</a>
+            <a href="vistaInscripcion.html">Registrarse</a>
+            <a href="loginVista.php">Ingresar</a>
+            <a href="Contacto.html">Formulario de contacto</a>
+        </nav>
+    </div>
+</header>        
 
   <form action="../backend/models/login.php" method="post">
     <h2>Login</h2>
 
     <!-- Mostrar mensaje de error si viene con ?error=1 -->
     <?php if (isset($_GET['error']) && $_GET['error'] == 1): ?>
-      <div class="error">Correo o clave incorrectos.</div>
+      <div class="error">Correo o clave incorrectos!!!</div>
     <?php endif; ?>
 
     <label for="correo">Correo:</label>

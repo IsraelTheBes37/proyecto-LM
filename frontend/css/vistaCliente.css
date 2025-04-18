@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    color: #333;
+}
+
+/* Estilo base para todos los botones */
+.boton {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+    color: white;
+    margin: 10px 5px;
+    width: 230px;
+  }
+  
+  /* Botón de actualizar datos (color naranja del header) */
+  .boton-actualizar {
+    background-color: #ff6d09;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .boton-actualizar:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+  }
+  
+  /* Botón de baja (verde como en el submit login) */
+  .boton-baja {
+    background-color: #28a745;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .boton-baja:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  /* Botón de cerrar sesión (rojo personalizado) */
+  .boton-cerrar {
+    background-color: #dc3545;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .boton-cerrar:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+  }
+  
+
+/* Contenedor general */
+.container {
+  background-color: rgba(87, 77, 71, 0.85); /* similar al fondo de form */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  max-width: 900px;
+  width: 100%;
+  color: #fff;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  color: #ff6d09;
+  margin-bottom: 25px;
+}
+
+/* Estilo de la tabla o lista de productos */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #000000;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #574d47;
+  color: #fff;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botones */
+.btn {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+/* Botón de cerrar sesión o salir */
+.btn-exit {
+  background-color: #dc3545;
+}
+
+.btn-exit:hover {
+  background-color: #c82333;
+}
+
+/* Mensajes de error */
+.error {
+  color: #ff6d09;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Opcional: para hacer más visual una fila editable o destacada */
+.editing-row {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px dashed #ff6d09;
+}
+
+/* Contenedor principal de la lista de productos */
+.productos {
+    display: flex;
+    flex-wrap: wrap; /* Para que los elementos se ajusten en varias filas */
+    gap: 20px; /* Espaciado entre productos */
+    justify-content: center; /* Centramos los productos */
+    padding: 20px;
+  }
+  
+  /* Cada producto individual */
+  .producto {
+    background-color: rgba(87, 77, 71, 0.85); /* Fondo semitransparente */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    max-width: 300px;
+    text-align: center;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Imagen del producto */
+  .producto img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Modelo del producto */
+  .producto strong {
+    color: #ff6d09;
+    font-size: 1.2em;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  /* Precio del producto */
+  .producto .precio {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Formulario y botones */
+  .producto form {
+    margin-top: 10px;
+  }
+  
+  .producto input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .producto button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .producto button:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+  }
+  
+  /* Línea divisoria opcional */
+  .producto + hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+  }
+  
+  /* Botón de finalizar (verde como en el submit login) */
+.boton-finalizar {
+    background-color: #28a745;
+  }
+  
+  .boton-finalizar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Contenido del Modal */
+  .modal-contenido {
+    background-color: rgba(87, 77, 71, 0.95);
+    color: #c8bfbf;
+    margin: 10% auto;
+    padding: 30px 25px;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+  
+  /* Botón de cerrar (X) */
+  .cerrar {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff6d09;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  .cerrar:hover {
+    color: #ffffff;
+  }
+  
+  /* Título del modal */
+  .modal-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ff6d09;
+    text-align: center;
+  }
+  
+  /* Botones del modal */
+  .modal-contenido button {
+    background-color: #ff6d09;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-contenido button:hover {
+    background-color: #e65c00;
+  }
+  

@@ -3,41 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Inscripción de Cliente</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <script src="js/registroCliente.js"></script>
 </head>
 <body>
-    <h1>Registro de Nuevo Cliente</h1>
+    <div class="overlay"></div>
+    <!-- menu -->
+<header>
+       <div class="container">
+           <div class="logo">Huellas Zapatería</div>
+           <nav>                    
+                <a class="active" href="index.html">Inicio</a>
+                <a href="vistaInscripcion.html">Registrarse</a>
+                <a href="loginVista.php">Ingresar</a>
+                <a href="Contacto.html">Formulario de contacto</a>
+           </nav>
+       </div>
+</header> 
+<section class="contenedorf"> 
+    
     <form action="../backend/models/registroCliente.php" method="POST">
-        <label>Nombre:</label><br>
-        <input type="text" name="nombre" required><br><br>
-
-        <label>Apellido:</label><br>
-        <input type="text" name="apellido" required><br><br>
-
-        <label>Representante (ID de empleado):</label><br>
-        <input type="number" name="representante"><br><br>
-
-        <label>Calle:</label><br>
-        <input type="text" name="calle"><br><br>
-
-        <label>Portón:</label><br>
-        <input type="text" name="porton"><br><br>
-
-        <label>Número de piso:</label><br>
-        <input type="text" name="num_piso"><br><br>
-
-        <label>Código Postal:</label><br>
-        <input type="text" name="cp"><br><br>
-
-        <label>Teléfono:</label><br>
-        <input type="text" name="telefono"><br><br>
-
-        <label>Correo electrónico:</label><br>
-        <input type="email" name="correo" required><br><br>
-
-        <label>Clave (contraseña):</label><br>
-        <input type="password" name="clave" required><br><br>
-
-        <input type="submit" value="Registrar Cliente">
+        <h1>Registro <span class="color-acento"> Nuevo Cliente</h1>
+            <input type="text" name="nombre" placeholder="Escriba su nombre" required> <br>           
+            <input type="text" name="apellido" placeholder="Escriba su apellido" required><br>            
+            <input type="number" name="representante" placeholder="Representante (ID de empleado)"><br>            
+            <input type="text" name="calle" placeholder="Escriba su dirección"><br>            
+            <input type="text" name="porton" placeholder="Escriba el número del portal""><br>            
+            <input type="text" name="num_piso" placeholder="Escriba su número de piso"><br>
+            <input type="text" name="cp" placeholder="Código postal"><br> 
+            <input type="text" name="telefono" placeholder="Teléfono"><br>
+            <input type="email" name="correo" placeholder="Correo electrónico" required><br>
+            <label>Clave (contraseña):</label><br>
+            <input type="password" name="clave" required><br><br>
+            <input type="submit" value="Registrar Cliente">
     </form>
+</section>
+<footer>
+    <div class="container">
+        <p>&copy; Huellas Zapatería</p>
+    </div>
+</footer>
 </body>
 </html>

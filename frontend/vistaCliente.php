@@ -94,35 +94,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_pedido']) &
 <head>
     <meta charset="UTF-8">
     <title>Vista Cliente</title>
-    <style>
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { padding: 8px; border: 1px solid #ccc; text-align: left; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-contenido { background: #fff; margin: 10% auto; padding: 20px; width: 300px; border-radius: 10px; }
-        .cerrar { float: right; cursor: pointer; }
-    </style>
+    
+    <link rel="stylesheet" href="css/vistaCliente.css">
 </head>
 <body>
 <h1>Bienvenido, <?php echo $_SESSION['cliente']['nombre']; ?></h1>
+
 <h2>Mi perfil</h2>
-<button onclick="mostrarModalEditarDatos()">Actualizar mis datos</button>
-<button onclick="confirmarEliminarCuenta()">Darme de baja</button>
+<button class="boton boton-actualizar" onclick="mostrarModalEditarDatos()">
+  Actualizar mis datos
+</button>
+
+<button class="boton boton-baja" onclick="confirmarEliminarCuenta()">
+  Darme de baja
+</button>
+
 <form method="post" style="display:inline;">
-    <button type="submit" name="cerrar_sesion" style="background-color:red; color:white; border:none; padding:8px 16px; cursor:pointer;">
-        Cerrar Sesión
-    </button>
+  <button type="submit" name="cerrar_sesion" class="boton boton-cerrar">
+    Cerrar Sesión
+  </button>
 </form>
 
-
 <h2>Productos</h2>
+<div class="productos">
 <?php
 $res = $conn->query("SELECT * FROM productos LIMIT 10");
 while ($producto = $res->fetch_assoc()):
 ?>
-    <div>
-        <img src="<?= $producto['nom_imagen'] ?>" alt="<?php echo htmlspecialchars($producto['modelo']); ?>" style="width: 100%; max-width: 300px; height: auto; object-fit: cover; display: block; margin: 0 auto;">
-        <strong><?php echo $producto['modelo']; ?></strong><br>
-        Precio: <?php echo $producto['precio']; ?> €<br>
+    <div class="producto">
+        <img src="<?= $producto['nom_imagen'] ?>" alt="<?php echo htmlspecialchars($producto['modelo']); ?>">
+        <strong><?php echo $producto['modelo']; ?></strong>
+        <div class="precio">Precio: <?php echo $producto['precio']; ?> €</div>
+        <div class="descripcion"><?php echo $producto['descripcion']; ?></div>
         <form method="post">
             <input type="hidden" name="anadir_carrito" value="1">
             <input type="hidden" name="id_modelo" value="<?php echo $producto['id_modelo']; ?>">
@@ -130,10 +133,11 @@ while ($producto = $res->fetch_assoc()):
             <button type="submit">Añadir al carrito</button>
         </form>
     </div>
-    <hr>
 <?php endwhile; ?>
+</div>
 
-<h2>Carrito</h2>
+
+<h2>Mi Carrito de Compras</h2>
 <?php if (!empty($_SESSION['carrito'])): ?>
 <form method="post">
     <table>
@@ -169,7 +173,7 @@ while ($producto = $res->fetch_assoc()):
     </table>
     <br>
     <input type="hidden" name="finalizar_pedido" value="1">
-    <button type="submit">Finalizar compra</button>
+    <button type="submit" class="boton boton-finalizar">Finalizar compra</button>
 </form>
 <?php else: ?>
 <p>El carrito está vacío.</p>
@@ -198,12 +202,13 @@ $res = $stmt->get_result();
 <div id="modalEditar" class="modal">
     <div class="modal-contenido">
         <span class="cerrar" onclick="cerrarModalEditarDatos()">&times;</span>
+        <h4>A continuación actualiza tus datos</h4><br>
         <form method="post">
             <input type="hidden" name="actualizar_datos" value="1">
-            <label>Nombre:</label><input type="text" name="nombre" value="<?php echo $_SESSION['cliente']['nombre']; ?>"><br>
-            <label>Apellido:</label><input type="text" name="apellido" value="<?php echo $_SESSION['cliente']['apellido']; ?>"><br>
-            <label>Correo:</label><input type="email" name="correo" value="<?php echo $_SESSION['cliente']['correo']; ?>"><br>
-            <label>Contraseña:</label><input type="password" name="clave" placeholder="Nueva contraseña (opcional)"><br>
+            <label>Nombre:</label><br><input type="text" name="nombre" value="<?php echo $_SESSION['cliente']['nombre']; ?>"><br><br>
+            <label>Apellido:</label><br><input type="text" name="apellido" value="<?php echo $_SESSION['cliente']['apellido']; ?>"><br><br>
+            <label>Correo:</label><br><input type="email" name="correo" value="<?php echo $_SESSION['cliente']['correo']; ?>"><br><br>
+            <label>Contraseña:</label><br><input type="password" name="clave" placeholder="Nueva contraseña (opcional)"><br>
             <button type="submit">Actualizar</button>
         </form>
     </div>

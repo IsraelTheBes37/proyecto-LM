@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body  {
+background-image: url('../../imagenes/zdephom/6.jpg');
+background-size: cover;
+background-position: center ;
+background-repeat: no-repeat;
+max-height: 100%;
+height:70%;
+margin: 0;
+}
+
+.overlay {
+  position: fixed; /* Fija el overlay a la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con 70% de transparencia */
+  z-index: -5;  
+}
+
+h2{
+  
+  text-align: right;
+  font-size:xx-large;
+  
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ff6d09;
+  z-index: 1000; /* para que esté encima de otros elementos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  max-width: 1400px;
+  margin: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #574d47;
+}
+
+header .logo {
+  margin: 0;
+  padding: 25px 30px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 1.6em;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+a {
+  padding: 35px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(243, 243, 243);
+}
+
+header a:hover{
+  color: rgb(255, 90, 25);
+}
+/* Contenedor del formulario */
+.form-container {
+  background-color: rgb(0, 0, 0, 0.25);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 400px;
+  color: #ffffff;
+  margin-top: 9%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
+h1 {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.comunicaciones{
+  margin-right: 3%;
+  width: 10%;
+
+}
+.datos{
+  width: 10%;
+  margin-right: 3%;
+}
+.checkbox {
+   display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.nuestro {
+  margin-top: 5%;
+  display: flex;
+}
+
+.texto {
+  display: flex;
+  color: #ff6d09;
+  text-align: justify;
+}
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff6d09;
+  text-align: justify;
+  padding: 60px;
+}
+
+
+/* pie de pagina */
+
+footer{
+  margin: 0;
+  background-color: rgb(221, 61, 61);
+   
+}
+
+footer p{
+  margin: 0;
+  padding: 12px;
+  color: rgb(255, 255, 255);
+  
+}
+
+footer .container{
+    height: 50px;
+  justify-content: center;
+  align-items: flex-end; 
+  
+}
+
+@media (max-width: 500px) {
+  .overlay {
+    padding: 20px;
+  }
+}

@@ -19,9 +19,9 @@ $stmt = $conn->prepare("INSERT INTO clientes (nombre, apellido, representante, c
 $stmt->bind_param("ssisssssss", $nombre, $apellido, $representante, $calle, $porton, $num_piso, $cp, $telefono, $correo, $clave);
 
 if ($stmt->execute()) {
-    echo "Cliente registrado exitosamente.";
+    header("Location: ../../frontend/vistaInscripcion.html?status=ok");
 } else {
-    echo "Error al registrar cliente: " . $stmt->error;
+    header("Location: ../../frontend/vistaInscripcion.html?status=error");
 }
 
 $stmt->close();

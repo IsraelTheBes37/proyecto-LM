@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    display: flex;
+    max-width: 1400px;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #574d47;
+  }
+
+  header .logo {
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 1.6em;
+  }
+
+  .banner img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ff6d09;
+    z-index: 1000; /* para que esté encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  header a:hover{
+    color: rgb(255, 90, 25);
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  a {
+    padding: 35px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(243, 243, 243);
+  }
+
+  body {
+    background-image: url('../../imagenes/1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  form {
+    background-color: rgba(87, 77, 71, 0.85); /* fondo semitransparente similar al container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    color: #ffffff;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #ff6d09;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  .error {
+    color: #ff6d09;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
