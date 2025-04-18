@@ -307,3 +307,20 @@ tr:hover {
     background-color: #e65c00;
   }
   
+  .paginacion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.paginacion a, .paginacion strong {
+    margin: 0 5px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+}
+
+.paginacion strong {
+    background-color: #eee;
+    font-weight: bold;
+}

@@ -1,4 +1,9 @@
 Desglose:
+
+Configurar el archivo conn.php con el servidor de bdd.
+Ejecutar el script de la bdzapateria.sql
+Utilizar las credeciales de los tres primero usuarios de los insert para probar el sistema.
+
 /frontend: Contiene todos los archivos relacionados con el frontend, incluyendo HTML, CSS, JavaScript, imágenes, fuentes, etc.
 
 CSS y JS se agrupan en carpetas separadas para facilitar la organización.

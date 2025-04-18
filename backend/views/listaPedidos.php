@@ -74,8 +74,11 @@ $pedidos = $conn->query("
         input, select { padding: 5px; margin: 5px; }
         form { margin-top: 20px; }
     </style>
+    <link rel="stylesheet" href="../../frontend/css/estiloTablas.css">
 </head>
 <body>
+    <h1>Gestión de Pedidos</h1>
+    <button onclick="window.location.href='../../frontend/vistaAdmin.php';">Regresar</button>
     <h2><?php echo $editarPedido ? "Editar Pedido" : "Nuevo Pedido"; ?></h2>
     <form method="POST">
         <?php if ($editarPedido): ?>
@@ -147,10 +150,17 @@ $pedidos = $conn->query("
                 <td><?= $p['vendedor_nombre'] . ' ' . $p['vendedor_apellido'] ?></td>
                 <td><?= $p['modelo_nombre'] ?></td>
                 <td><?= $p['cantidad'] ?></td>
-                <td>
-                    <a href="?editar=<?= $p['num_pedido'] ?>">Editar</a> |
-                    <a href="?eliminar=<?= $p['num_pedido'] ?>" onclick="return confirm('¿Eliminar este pedido?')">Eliminar</a>
+                <td class="acciones">
+                    <form action="" method="get" style="display: inline;">
+                        <input type="hidden" name="editar" value="<?= $p['num_pedido'] ?>">
+                        <button type="submit" id="boton-editar">Editar</button>
+                    </form>
+                    <form action="" method="get" style="display: inline;" onsubmit="return confirm('¿Eliminar este pedido?')">
+                        <input type="hidden" name="eliminar" value="<?= $p['num_pedido'] ?>">
+                        <button type="submit" class="boton boton-eliminar">Eliminar</button>
+                    </form>
                 </td>
+
             </tr>
         <?php endwhile; ?>
     </table>

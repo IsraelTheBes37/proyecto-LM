@@ -116,26 +116,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar_pedido']) &
 </form>
 
 <h2>Productos</h2>
-<div class="productos">
+
 <?php
-$res = $conn->query("SELECT * FROM productos LIMIT 10");
-while ($producto = $res->fetch_assoc()):
+// Definir productos por página
+$productos_por_pagina = 10;
+
+// Detectar página actual desde la URL, si no existe es la página 1
+$pagina_actual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($pagina_actual < 1) $pagina_actual = 1;
+
+// Calcular el OFFSET
+$offset = ($pagina_actual - 1) * $productos_por_pagina;
+
+// Obtener total de productos
+$total_productos_res = $conn->query("SELECT COUNT(*) as total FROM productos");
+$total_productos = $total_productos_res->fetch_assoc()['total'];
+
+// Calcular total de páginas
+$total_paginas = ceil($total_productos / $productos_por_pagina);
+
+// Obtener los productos para la página actual
+$res = $conn->query("SELECT * FROM productos LIMIT $productos_por_pagina OFFSET $offset");
 ?>
+
+<div class="productos">
+<?php while ($producto = $res->fetch_assoc()): ?>
     <div class="producto">
-        <img src="<?= $producto['nom_imagen'] ?>" alt="<?php echo htmlspecialchars($producto['modelo']); ?>">
-        <strong><?php echo $producto['modelo']; ?></strong>
-        <div class="precio">Precio: <?php echo $producto['precio']; ?> €</div>
-        <div class="descripcion"><?php echo $producto['descripcion']; ?></div>
+        <img src="<?= $producto['nom_imagen'] ?>" alt="<?= htmlspecialchars($producto['modelo']); ?>">
+        <strong><?= $producto['modelo']; ?></strong>
+        <div class="precio">Precio: <?= $producto['precio']; ?> €</div>
+        <div class="descripcion"><?= $producto['descripcion']; ?></div>
         <form method="post">
             <input type="hidden" name="anadir_carrito" value="1">
-            <input type="hidden" name="id_modelo" value="<?php echo $producto['id_modelo']; ?>">
-            <input type="number" name="cantidad" min="1" max="<?php echo $producto['existencias']; ?>" required>
+            <input type="hidden" name="id_modelo" value="<?= $producto['id_modelo']; ?>">
+            <input type="number" name="cantidad" min="1" max="<?= $producto['existencias']; ?>" required>
             <button type="submit">Añadir al carrito</button>
         </form>
     </div>
 <?php endwhile; ?>
 </div>
 
+<!-- Navegación de paginación -->
+<div class="paginacion">
+    <?php if ($pagina_actual > 1): ?>
+        <a href="?pagina=<?= $pagina_actual - 1 ?>">&laquo; Anterior</a>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
+        <?php if ($i == $pagina_actual): ?>
+            <strong><?= $i ?></strong>
+        <?php else: ?>
+            <a href="?pagina=<?= $i ?>"><?= $i ?></a>
+        <?php endif; ?>
+    <?php endfor; ?>
+
+    <?php if ($pagina_actual < $total_paginas): ?>
+        <a href="?pagina=<?= $pagina_actual + 1 ?>">Siguiente &raquo;</a>
+    <?php endif; ?>
+</div><br><br>
 
 <h2>Mi Carrito de Compras</h2>
 <?php if (!empty($_SESSION['carrito'])): ?>

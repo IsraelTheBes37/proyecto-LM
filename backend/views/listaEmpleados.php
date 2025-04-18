@@ -75,8 +75,12 @@ $empleados = $conn->query("
         form { margin-top: 20px; }
         input, select { padding: 5px; margin: 5px; }
     </style>
+    <link rel="stylesheet" href="../../frontend/css/estiloTablas.css">
 </head>
 <body>
+    <h1>Gestión de Empleados</h1>
+    <button onclick="window.location.href='../../frontend/vistaAdmin.php';">Regresar</button>
+
     <h2><?php echo $editarEmpleado ? "Editar Empleado" : "Nuevo Empleado"; ?></h2>
     <form method="POST">
         <?php if ($editarEmpleado): ?>
@@ -126,9 +130,15 @@ $empleados = $conn->query("
                 <td><?= $emp['cargo'] ?></td>
                 <td><?= $emp['correo'] ?></td>
                 <td><?= $emp['admin_nombre'] ? $emp['admin_nombre'] . ' ' . $emp['admin_apellido'] : '—' ?></td>
-                <td>
-                    <a href="?editar=<?= $emp['num_empleado'] ?>">Editar</a> |
-                    <a href="?eliminar=<?= $emp['num_empleado'] ?>" onclick="return confirm('¿Eliminar este empleado?')">Eliminar</a>
+                <td class="acciones">
+                    <form action="" method="get" style="display: inline;">
+                        <input type="hidden" name="editar" value="<?= $emp['num_empleado'] ?>">
+                        <button type="submit" id="boton-editar">Editar</button>
+                    </form>
+                    <form action="" method="get" style="display: inline;" onsubmit="return confirm('¿Eliminar este empleado?')">
+                        <input type="hidden" name="eliminar" value="<?= $emp['num_empleado'] ?>">
+                        <button type="submit" class="boton boton-eliminar">Eliminar</button>
+                    </form>
                 </td>
             </tr>
         <?php endwhile; ?>

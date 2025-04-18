@@ -25,7 +25,7 @@ $resultado = $conn->query($sql);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CRUD Productos</title>
+    <title>Gestión Productos</title>
     <link rel="stylesheet" href="../../css/estilos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../frontend/js/funcionesProductos.js"></script>
@@ -54,9 +54,10 @@ $resultado = $conn->query($sql);
             text-align: left;
         }
     </style>
+    <link rel="stylesheet" href="../../frontend/css/estiloTablas.css">
 </head>
 <body>
-    <h2>CRUD de Productos</h2>
+    <h1>Gestión de Productos</h1>
     <button onclick="window.location.href='../../frontend/vistaAdmin.php';">Regresar</button>
     <?php if ($puedeAgregar): ?>
     <form method="post" action="../models/addProducto.php">
